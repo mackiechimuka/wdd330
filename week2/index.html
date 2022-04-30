@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <h1>Week 2 Notes</h1>
+    <section>
+        <h2>JavaScript Code Snippets</h2>
+        <code>
+            function range(start, end, step = start < end ? 1 : -1) {<br>
+                let array = [];<br>
+              
+                if (step > 0) {<br>
+                  for (let i = start; i <= end; i += step) array.push(i);<br>
+                } else {<br>
+                  for (let i = start; i >= end; i += step) array.push(i);<br>
+                }<br>
+                return array;<br>
+              }<br>
+              
+              function sum(array) {<br>
+                let total = 0;<br>
+                for (let value of array) {<br>
+                  total += value;<br>
+                }<br>
+                return total;<br>
+              }
+        </code>
+    </section>
+    <section>
+        <h2>Arrays,Logic And loops Notes </h2>
+        <p>
+            An Array is an odered list.<br> There are two ways of creating arrays and these two ways are array literals and array constructor function.
+        </p>
+        <p>
+            The most prefered way to create arrays by most developers is using array literals.
+        </p>
+        <p>When we want to access an area we used the square barackets and put the position of an array know as an index. The Index of an area start from 0</p>
+        <p>
+            We can place or add values do the arrays by using index for example <code>let myArray = ["John"] ; myArray[0] = "Laura"</code>. As you can see we have added our array as the first value of the Array.
+        </p>
+        <p>
+            The pop method remove the last item in an array. The push method add an item to the value.The shift method removes the first item in a list.The unshift method add the element on the first position.
+        </p>
+        <p>
+            We can merge an array with a concat() method. The spread operator is three dots ()...) that are placed in front of an array, with the effect of spreading out the elements of that array.
+        </p>
+        <p>
+            The join() method can be used to turn the array into a string that comprises all the items in the array, separated by commas.
+        </p>
+        <p>
+            he slice() method creates a subarray; effectively chopping out a slice of an original array, starting at one position and finishing at another.
+        </p>
+        <p>
+            The splice() method removes items from an array then inserts new items in their place.
+        </p>
+    </section>
+    
+</body>
+</html>
