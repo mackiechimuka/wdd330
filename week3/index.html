@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <title>Week 3 Notes</title>
+</head>
+<body>
+    <main>
+        <h1>Week3 Notes</h1>
+        <div>
+            <h2>DOM</h2>
+            <p>
+                DOM represents  HTML document as a network of connected nodes that form a tree-like structure.HTML tags, the text inside these tags, even the attributes of a tag are all nodes. The HTML tag is the root node, and every other part of the document is a child node of this.
+            </p>
+            <p>
+                The getElementById() It returns a reference to the element with a unique id attribute that is given as an argument. Every id attribute should be unique to just one element <br> An example of getElementById() <code>const people= document.getElementById('people')</code>
+            </p>
+            <p>
+                getElementsByTagName() will return a live node list of all the elements with the tag name that is provided as an argument.
+                Am example <code>const heading = document.getElementsByTagName('h1');</code>
+            </p>
+            <p>
+                getElementsByClassName() will return a live node list of all elements that have the class name that is supplied as an argument.
+                An example <code>const color =  document.getElementsByClassName('color');</code>
+            </p>
+            <p>
+                The document.querySelector() method allows you to use CSS notation to find the first element in the document that matches that matches a CSS selector provided as an argument.
+            </p>
+            <p>
+                The document.querySelectorAll() method also uses CSS notation but returns a node list of all the elements in the document that match the CSS query selector
+            </p>
+            <p>The getAttribute() method returns the value of the attribute provided as an argument.</p>
+            <p>
+                The setAttribute can change the value of an element's attributes. It takes two arguments: the attribute that you wish to change, and the new value of that attribute.
+            </p>
+            <p>
+                className property that allows the class of an element to be set directly. In addition, it can be used to find out the value of the class attribute:
+            </p>
+            <p>
+                A text node can be created using the document.createTextNode() method. It takes a parameter, which is a string containing the text that goes in the node.
+            </p>
+            <p>
+                appendChild() method that will add another node (given as an argument) as a child node.The appendChild method is useful as you will often want to add a new element to the bottom of a list
+            </p>
+        </div>
+    </main>
+    
+</body>
+</html>
