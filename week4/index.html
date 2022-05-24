@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <h1>Week 4 Notes</h1>
+    
+    <section>
+        <h2>Form notes </h2>
+        <p>
+            document.forms that returns an HTML collection of all the forms in the document in the order they appear in the markup.<br> An example of using document.form isconst form = document.forms[0];
+        </p>
+        <p>
+            We can use the name attribute to identify the form instead of using numeric index.
+        </p>
+        <p>A form object  has a method called elements that returns an HTML collection of all the elements contained in the form.<br>onst [input,button] = form.elements; is an example using the element method.</p>
+        <p>
+            We can also access the form controls using their 'name' attributes as if it was a property of the form object. 
+        </p>
+        <p>
+            The form.submit() method will submit the form automatically and this method wont trigger theform submit.
+        </p>
+        <p>
+            he form.reset() method will reset all the form controls back to their initial values specified in the HTML.
+        </p>
+        <p>
+            The form.action property can be used to set the action attribute of a form, so it’s sent to a different URL to be processed on the server.
+        </p>
+        <p>
+            The focus event occurs when an element is focused on. In the case of an <strong>input</strong> element, this is when the cursor is placed inside the element (either by clicking or tapping on it or navigating to it using the keyboard).
+        </p>
+        <p>
+            The blur event occurs when the user moves the focus away from the form element.
+        </p>
+        <p>submit event,usually this will send the content of the form to the server to be processed, but we can use JavaScript to intercept the form before it’s sent by adding a submit event listener. </p>
+        <p>
+            Text input element objects have a value property that can be used to retrieve the text inside the field.
+        </p>
+        <h2>Object Oriented</h2>
+        <p>We can create objects using the constructor method.</p>
+        <p>
+            Text input element objects have a value property that can be used to retrieve the text inside the field.
+        </p>
+        <p> Example of constructor method<code>const Dice = function(sides=6){
+            this.sides = sides;
+            this.roll = function() {
+                return Math.floor(this.sides * Math.random() + 1)
+            }
+        }</code></p>
+        <p>We can now create an instance of the dice constructor function using the new operator.<code>const redDice = new Dice();
+             Dice { sides: 6, roll: [Function] }</code></p>
+             <p>Declaration using the class of objects <code>class Dice {
+                constructor(sides=6) {
+                    this.sides = sides;
+                }
+            
+                roll() {
+                    return Math.floor(this.sides * Math.random() + 1)
+                }
+            }</code></p>
+    </section>
+    
+</body>
+</html>
