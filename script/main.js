@@ -19,6 +19,10 @@ const links=[
     {
         label:"Week 5 Notes",
         url:"week5/index.html"
+    },
+    {
+        label:'Todo',
+        url:'todo/index.html', 
     }
 ]
 function loadIndex(){
