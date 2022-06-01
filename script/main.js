@@ -22,7 +22,7 @@ const links=[
     },
     {
         label:'Todo',
-        url:'todo/index.html', 
+        url:'todoChallenge/index.html', 
     }
 ]
 function loadIndex(){

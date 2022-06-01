@@ -10,13 +10,19 @@ function getTodoList(){
     }
     return todoList;
 }
+function saveTodo(todo){
+    let todoList = getTodoList();
+    todoList.push(todo);
+    localStorage.setItem(TODO_LIST,JSON.stringify(todoList))
+}
 function deleteTodo(id){
     const todoList = getTodoList();
     
     let updatedList = todoList.filter(todo=>todo.id!=id)
     localStorage.setItem(TODO_LIST,JSON.stringify(updatedList))
 }
-export{
+
+export default{
     saveTodo,
     deleteTodo,
     getTodoList

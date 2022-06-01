@@ -1,4 +1,5 @@
-
+import ultis from './ultis.js'
+import ls from './ls.js'
 
 //onclick handler to button
 document.querySelector("#addBtn").onclick = addNewTodo;
@@ -10,9 +11,14 @@ input.addEventListener('keypress',e =>{
 }) 
 
 loadTodos();
+//Add EventListeners
+document.querySelector('#addBtn').onclick= addNewTodo;
+document.querySelector('#activeFilter').onclick= applyFilter;
+document.querySelector('#allFilter').onclick= applyFilter
+
 
 function addNewTodo(e){
-    const todo ={id:Date.now(),content:input,completed:false};
+    const todo ={id:Date.now(),content: input.value,completed:false};
     //reset input
     input.value='';
     //add item to the UI
@@ -76,5 +82,23 @@ function deleteTodo(e){
     loadTodos();
 }
 function toggleComplete(e){
-    const 
+    const btn = e.currentTarget;
+    ls.saveTodo(btn.getAttribute('data-id').classList.toggle('check'))
+}
+function applyFilter(e){
+    document.querySelector('#todos').innerHTML ="";
+
+    let filteredTodos =[];
+    const allTodos = ls.getTodoList();
+
+    if (e.currentTarget.id==='activeFilter'){
+        filteredTodos = ultis.activeFilter(allTodos)
+    }else if (e.currentTarget.id =='allFilter'){
+        filteredTodos =allTodos}
+
+    filteredTodos.forEach(todo =>{
+        const el = createTodoElement(todo)
+        addToList(el)
+    })
+
 }
