@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <h1>Week 7 Notes</h1>
+    
+    <section>
+        <h2>Functional programming</h2>
+        <p>
+            Memoization is an useful feature that provides result catching.<br>
+            We can use this feature when function takes a lot of time to complete a return value and save the result in a cache property<br>
+            When the same arguement is used again later, we can return value from the cache instead of the function.
+        </p>
+        <p>
+            An imediately invoked function expressions(IFES) is an anonynous function that is invoked as soo it is defined.<br>
+            You can achieve it by putting a () at the end of the function defination to imediately invoked it.<br>
+            IFES are critical way of performing task while keeping in any variable wrapped up within the scope of the function which means global namespace is not populated with lots of variable names
+        </p>
+        <p>
+            An IFE can be used to set up an initialization code that won't be needed again since thwe code is only runned once and there is no need to create an reusable, named function and all variables will be temporary.
+        </p>
+        <p>
+            A function is able to call itself ,define itself and even redefine itself<br>
+            You can do it by assigning an anonymous function to a variable the same name as the function.
+            If a function is assigned to another variable, this variable will maintain the original defination of the function and canot be rewritten again.
+        </p>
+        <p>
+            A recursive function is one that invokes itself until a certain condition is met and it can be used when iterative processes is done<br>
+            <code>function party(){<br>
+                console.log('Wow this is amazing!');<br>
+                party = function(){<br>
+                    console.log('Been there, got the T-Shirt');<br>
+                }<br>
+            }</code>
+        </p>
+        <p>
+           Callbacks are also used to facilitate event-driven async programming. 
+        </p>
+        <p>
+            JavaScript is a single threaded environment inwhich one piece of the code will be processed one at a time.<br>
+            A callback can be created so that we won't wait an event which means the code is able to run asynchrously<br>
+            Callbacks ensure the code is able to run async with events such as click, keypress etc<br>
+            When we use callbacks we ensure that waiting for these tasks doesn't hold up the execution of the other parts of the program and once task has been completed <br>
+            the callback will be invoked before returning to the rest of the program.
+        </p>
+        <code>function wait(message, callback, seconds){<br>
+            setTimeout(callback,seconds * 1000);<br>
+            console.log(message);<br>
+        }</code>
+        <p>
+            When a promise is created ,it calls an async operation and is said to be pending.<br>
+            It remains in this state while operation is taking place and the promise will be unsettled once the operation is done the promise would have been settled.<br>
+            A promise can return results in two outcomes resolved (the async operation was completed successful)and rejected(the async didnt woek as expected or it resulted in an error)
+        </p>
+        <p>
+          <code>const promise = new Promise( (resolve, reject) => {<br>
+            // initialization code goes here<br>
+            if (success) {<br>
+                resolve(value);<br>
+            } else {<br>
+                reject(error);<br>
+            }<br>
+        });</code>
+        </p>
+        <p>
+        Once the promise has been settled the then() mrthod can be used to deal with the outcome.<br>
+        Then() method takes two arguements resolve() and reject()<br>
+        The catch() method can be used to specify what to do if the operation fail. </p>
+        <p>
+            Async functions allow you to write asynchronous code as if it is synchronous. <br>
+            It is achieved by using await operator.
+            <br> The await function will ensure the next line of code is not executed.
+        </p>
+        <p>
+            <code>
+                async function loadGame(userName) {<br>
+
+                    try {<br>
+                        const user = await login(userName);<br>
+                        const info = await getPlayerInfo (user.id);<br>
+                        // load the game using the returned info<br>
+                    }<br>
+                
+                    catch (error){<br>
+                        throw error;<br>
+                    }<br>
+                }<br>
+            </code>
+        </p>
+        <p>
+            A closure is formed when a function returns another function that then maintains access to any variables created in the original function scope.
+        </p>
+        <p> A closure also have access to variables declared in a parent function's scope, they can change the value of these variables</p>
+        <p>Generators are special function used to produce iterators that maintain state of value and its defined by an asterisk symbol(*) placed after function declaration</p>
+            <p> 
+             Calling a generator function doesn’t actually run any of the code in the function ,it returns a genarator object that can be used to create interior that implements a next()method that returns a value every time next() method is called
+             <br>Yield keyword is used to return a value in a generator fumction
+            </p>
+        <p>
+            <code>
+                function* fibonacci(a,b) { <br>
+                    let [ prev,current ] = [ a,b ];<br>
+                    while(true) {<br>
+                        [prev, current] = [current, prev + current];<br>
+                        yield current;<br>
+                    }<br>
+                }<br>
+            </code>
+        </p>
+        <p>
+            In functional porogramming we yse pure functions
+            <br>The return value iof a pure function should only depend on the values provided as arguements and it doesn't rely from values somewhere in the program
+            <br>A pure function doesn't change any values or data anywhere in the program, it only makes non-destructive data transformations and return new values rather than altering any of underlying data
+            <br>High Order functions are function that accept another function as an arguement or return another function as a result
+            <br>When a higher order function returns another function we can use a neat trick to create an anonymous return function and immesiately invoke the function with a value instead by using double parenthses ()
+        </p>
+        <p>
+            <code>
+                function power(x) {
+                  <br>  return function(power) {
+                   <br>     return Math.pow(x,power);
+                   <br>}
+                <br>}
+            </code>
+        </p>
+        <h2>AJAX</h2>
+        <p>
+            The Fetch API uses promises to avoid callback hell and also streamlines a number of the concepts that had become cumbersome when using the XMLHttpRequest object data
+            <br>The fetch API has a global method fetch() method that has1 mandatory arguement which is the url 
+            <br><code>
+                <br>fetch('https://example.com/data')
+                <br>.then(// code that handles the response )
+                <br>.catch( // code that runs if the server returns an error )
+            </code>
+        </p>
+        <p>
+            The fetch API returns a promise that resolves to the response from URL <br>
+            Each object has an ok property to check if the response was successful based on the HTTP status property
+            <br>& is usually 200 if the response was successful and 201 when the result was created and 204 when requests is successful but no contents returned
+            <br> The ok property will return true if the property is between 200 and 299
+            <br>StatusText property of the response object specify the status message that corresponds to the code returned
+        </p>
+        <p>
+            <strong>headers</strong> contains any header associated with response
+            <br><strong>url</strong>a string containing the URL of response
+            <br><strong>rediricted</strong> a bolean value that specifies if the response is the result of the redirect
+            <br><strong>type</strong>A string of basic ,cors,error or opaque
+            <br>Basic value is used for a response from the same domain
+            <br>Cors value is the data received from a valiD cross-origin request from a dfferent domain
+            <br>Opaque is used for a response received from no cors request from another domain inwhich access to the data will be severly restricted
+            <br>Error is used when a network error occurs.
+        </p>
+        <p>
+            Redirect method can be used to redirect to another URL and a new promise is created that resolves to the response
+            <br>Text() method takes stream of text from the response ,reads,its completion and then returns a promise that resolves to USVstring object that is treated as a string in JavaScript.
+            <br>Blob() method is used to read a file of raw data,such as image or spreadsheet and once it readsthe whole file returns a promise that resolves with blob object 
+            <br>Json() method is used to  deal with these transforming a stream of JSON data into promise that resolves to JavaScript object 
+            <br> Object.entries() is used to view the key value pairs in the returned object
+        </p>
+        <p>
+            You can also create your own response object with a new Response constructor with the first arguement  as the data to be returned eg textstream, fileor a join and the second argument as an object that provide the value for any properties
+            <br><code>const response = new Response( 'Hello!', {
+               <br> ok: true,
+               <br>status: 200,
+               <br>statusText: 'OK',
+               <br>type: 'cors',
+               <br>url: '/api'
+            });</code>
+        </p>
+        <p>
+            Request objects are created using the Request()constructor
+            <br>Once the request object is assigned it can be assigned as a variable and used as a parameterof the method.
+            <br>const request = new Request('https://example.com/data', {
+             <br> method: 'GET',
+              <br>  mode: 'cors',
+              <br>  redirect: 'follow',
+               <br> cache: 'no-cache'
+            <br>});
+        </p>
+        <p>
+            HTTP headers can be used to pass on any additional information about request or response and it contains filee-type of the resource, cookie information, aunthication information and when the resources was last modified.
+            <br><code>const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })</code>
+            <br>has() method is used to check the headers object cointains the header provided as an arguement
+            <br>get() method is used to return the value of the header provided as an arguement
+            <br> set() method is used to set a value of already exsisting header,create a new header with value provided as an arguement if it doesn't exisist.
+        </p>
+        <p>
+            <code>
+           <br> const form = document.forms['todo'];
+           <br>form.addEventListener('submit', addTask, false);
+           <br>
+           <br>function addTask(event) {
+            <br> event.preventDefault();
+            <br>const number = form.task.value;
+            <br>const task = {
+                <br>      userId: 1,
+                <br>   title: form.task.value,
+                <br>   completed: false
+                <br>}
+                <br>const data = JSON.stringify(task);
+                <br>const url = 'https://jsonplaceholder.typicode.com/todos';
+            
+                <br>const headers = new Headers({
+                    <br>   'Accept': 'application/json',
+                    <br>   'Content-Type': 'application/json'
+                    <br>});
+                    <br>const request = new Request(url,
+                    <br>{
+                        <br> method: 'POST',
+                        <br> header: headers,
+                        <br> body: data
+                        <br>}
+                        <br>)
+            
+                        <br>fetch(request)
+                        <br>.then( response => response.json() )
+                        <br>.then( task => console.log(`Task saved with an id of ${task.id}`) )
+                        <br>.catch( error => console.log('There was an error:', error))
+            
+                        <br>}</code></p>
+    </section>
+    
+</body>
+</html>
