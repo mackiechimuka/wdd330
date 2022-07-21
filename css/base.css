@@ -16,9 +16,13 @@ ol li a{
     padding: 2px;
     color: black;
     margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-style:italic;
 }
 ol li a:hover{
     background:navy;
     color:white;
     
 }
+

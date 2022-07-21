@@ -39,7 +39,13 @@ const links=[
     {
         label:'Week10 Notes',
         url:'week10/index.html',
+    
+    },
+    {
+        label:'Weather App',
+        url:'weatherApp/index.html',
     }
+
 ]
 function loadIndex(){
    const ol= document.querySelector("#linkList")

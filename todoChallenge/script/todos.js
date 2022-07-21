@@ -1,5 +1,6 @@
-import ultis from './ultis.js'
-import ls from './ls.js'
+import ultis from './ultis.js';
+import ls from './ls.js';
+
 
 //onclick handler to button
 document.querySelector("#addBtn").onclick = addNewTodo;
